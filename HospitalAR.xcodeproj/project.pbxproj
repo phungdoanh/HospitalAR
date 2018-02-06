@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D05E982820295C4400BE06A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E982720295C4400BE06A5 /* AppDelegate.swift */; };
-		D05E982A20295C4400BE06A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E982920295C4400BE06A5 /* ViewController.swift */; };
 		D05E982D20295C4400BE06A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D05E982B20295C4400BE06A5 /* Main.storyboard */; };
 		D05E982F20295C4400BE06A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D05E982E20295C4400BE06A5 /* Assets.xcassets */; };
 		D05E983220295C4400BE06A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D05E983020295C4400BE06A5 /* LaunchScreen.storyboard */; };
 		D05E983D20295C4400BE06A5 /* HospitalARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E983C20295C4400BE06A5 /* HospitalARTests.swift */; };
 		D05E984820295C4400BE06A5 /* HospitalARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E984720295C4400BE06A5 /* HospitalARUITests.swift */; };
+		D05E985620295C6F00BE06A5 /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E985520295C6F00BE06A5 /* Clue.swift */; };
+		D05E985820295C8000BE06A5 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E985720295C8000BE06A5 /* CameraController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		D05E982420295C4400BE06A5 /* HospitalAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HospitalAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05E982720295C4400BE06A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D05E982920295C4400BE06A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D05E982C20295C4400BE06A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D05E982E20295C4400BE06A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D05E983120295C4400BE06A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		D05E984320295C4400BE06A5 /* HospitalARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HospitalARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05E984720295C4400BE06A5 /* HospitalARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalARUITests.swift; sourceTree = "<group>"; };
 		D05E984920295C4400BE06A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D05E985520295C6F00BE06A5 /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
+		D05E985720295C8000BE06A5 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				D05E982720295C4400BE06A5 /* AppDelegate.swift */,
-				D05E982920295C4400BE06A5 /* ViewController.swift */,
 				D05E982B20295C4400BE06A5 /* Main.storyboard */,
 				D05E982E20295C4400BE06A5 /* Assets.xcassets */,
 				D05E983020295C4400BE06A5 /* LaunchScreen.storyboard */,
 				D05E983320295C4400BE06A5 /* Info.plist */,
+				D05E985520295C6F00BE06A5 /* Clue.swift */,
+				D05E985720295C8000BE06A5 /* CameraController.swift */,
 			);
 			path = HospitalAR;
 			sourceTree = "<group>";
@@ -259,7 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D05E982A20295C4400BE06A5 /* ViewController.swift in Sources */,
+				D05E985820295C8000BE06A5 /* CameraController.swift in Sources */,
+				D05E985620295C6F00BE06A5 /* Clue.swift in Sources */,
 				D05E982820295C4400BE06A5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

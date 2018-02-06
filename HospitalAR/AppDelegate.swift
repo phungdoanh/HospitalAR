@@ -3,7 +3,6 @@
 //  HospitalAR
 //
 //  Created by Peter Andringa on 2/5/18.
-//  Copyright © 2018 Peter Andringa. All rights reserved.
 //
 
 import UIKit
