@@ -192,7 +192,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Peter Andringa";
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					D05E982320295C4400BE06A5 = {
 						CreatedOnToolsVersion = 9.2;
@@ -431,10 +431,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MAGH59QJGS;
+				DEVELOPMENT_TEAM = P5M9Y6EB3R;
 				INFOPLIST_FILE = HospitalAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peterandringa.HospitalAR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andreagonzales.HospitalAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -446,10 +446,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MAGH59QJGS;
+				DEVELOPMENT_TEAM = P5M9Y6EB3R;
 				INFOPLIST_FILE = HospitalAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peterandringa.HospitalAR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andreagonzales.HospitalAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
