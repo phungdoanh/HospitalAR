@@ -61,11 +61,18 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cape" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUt-Qc-Fvv">
+                                        <rect key="frame" x="118.5" y="45" width="83.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                        <color key="textColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="crJ-KS-0AU" secondAttribute="trailing" constant="20" id="0uZ-EK-A1c"/>
                                     <constraint firstItem="qxh-pU-FW1" firstAttribute="top" secondItem="AJ8-n3-nhV" secondAttribute="top" constant="-50" id="Ntj-43-W8L"/>
+                                    <constraint firstItem="IUt-Qc-Fvv" firstAttribute="top" secondItem="AJ8-n3-nhV" secondAttribute="top" constant="45" id="P5T-eL-dVa"/>
                                     <constraint firstItem="crJ-KS-0AU" firstAttribute="leading" secondItem="AJ8-n3-nhV" secondAttribute="leading" constant="20" id="Uvg-UX-xwh"/>
                                     <constraint firstItem="qxh-pU-FW1" firstAttribute="centerX" secondItem="AJ8-n3-nhV" secondAttribute="centerX" id="hVU-EK-PcD"/>
                                     <constraint firstAttribute="width" constant="320" id="hld-Ee-qmJ"/>
@@ -98,13 +105,33 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENx-f8-nDe">
+                                <rect key="frame" x="47" y="219" width="280" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="I3U-Qo-ceb"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="You found a cape! Your hero now has the power of flight.">
+                                        <attributes>
+                                            <color key="NSColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="20"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.87397569444444445" green="0.87397569444444445" blue="0.87397569444444445" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="ENx-f8-nDe" firstAttribute="leading" secondItem="AJ8-n3-nhV" secondAttribute="trailing" constant="-300" id="3RS-jq-MzL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JxC-dw-5Rf" secondAttribute="bottom" id="4Io-ro-ekf"/>
+                            <constraint firstItem="ENx-f8-nDe" firstAttribute="centerX" secondItem="AJ8-n3-nhV" secondAttribute="centerX" id="8Va-WQ-5OP"/>
                             <constraint firstItem="AJ8-n3-nhV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EQE-aq-kxs"/>
                             <constraint firstItem="JxC-dw-5Rf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Hon-et-3Dk"/>
+                            <constraint firstItem="ENx-f8-nDe" firstAttribute="top" secondItem="IUt-Qc-Fvv" secondAttribute="bottom" constant="29.5" id="IqW-9v-YEu"/>
+                            <constraint firstItem="IUt-Qc-Fvv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="e0Q-ws-YWr"/>
                             <constraint firstItem="JxC-dw-5Rf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qk1-6F-Lmk"/>
                             <constraint firstItem="AJ8-n3-nhV" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="tOD-1j-Foz"/>
                         </constraints>
