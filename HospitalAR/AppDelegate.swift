@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // TEMP: Stub a clue for Realm
+        let clueRealm = try! Realm()
+        if clueRealm.objects(Clue.self).count == 0 {
+            let testClue = Clue()
+            testClue.id = 1
+            testClue.clueTitle = "Clue #1"
+            testClue.clueText = "You want to fly? You’re looking for birds with long necks who honk when they're flying."
+            testClue.hint = "These geese are flying towards treatment!"
+            testClue.image = "cape.jpg"
+            testClue.foundTitle = "Cape"
+            testClue.foundText = "You found a cape! Your hero now has the power of flight."
+        
+            try! clueRealm.write {
+                clueRealm.add(testClue)
+            }
+        }
         return true
     }
 

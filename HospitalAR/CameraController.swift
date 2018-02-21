@@ -7,11 +7,15 @@
 
 import UIKit
 import AVFoundation
+import RealmSwift
 
 class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     @IBOutlet var popupView:UIView!
-    @IBOutlet var messageLabel:UILabel!
+    @IBOutlet weak var foundTitle: UILabel!
+    @IBOutlet weak var foundText: UILabel!
+    @IBOutlet weak var clueContainer: UIView!
+    @IBOutlet var clueLabel:UILabel!
     @IBOutlet weak var messageConstraint: NSLayoutConstraint!
     
     var captureSession = AVCaptureSession()
@@ -19,7 +23,11 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
     
-    var popupVisible = false;
+    var popupVisible = false
+    
+    var currentClue: Clue? // Comes in from preceeding scene
+    
+    let clueRealm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +39,9 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         popupView.layer.shadowRadius = 3
         popupView.layer.shadowColor = UIColor.lightGray.cgColor
         messageConstraint.constant = -self.view.frame.size.height
+        foundTitle.text = currentClue?.foundTitle
+        foundText.text = currentClue?.foundText
+        clueLabel.text = currentClue?.clueText
         
         // Get the back-facing camera for capturing videos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
@@ -81,7 +92,7 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         }
         
         // Move the message label and top bar to the front
-        view.bringSubview(toFront: messageLabel)
+        view.bringSubview(toFront: clueContainer)
         view.bringSubview(toFront: popupView)
     }
 
@@ -90,29 +101,41 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No QR code is detected"
             return
         }
         
         // Get the metadata object.
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        
-        let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-        qrCodeFrameView?.frame = barCodeObject!.bounds
-        
+
         if let codeUrl = metadataObj.stringValue {
-//            let c = Clue(url: codeUrl)
-            messageLabel.text = "Found"
-            if(!popupVisible){
-                showPopup()
+            let regex = try! NSRegularExpression(pattern: "\\/clue\\/([0-9]+)")
+            if let match = regex.matches(in: codeUrl, options: [], range: NSRange(location: 0, length: codeUrl.count)).first {
+                let id = (codeUrl as NSString).substring(with: match.range(at:1))
+                if Int(id) == currentClue!.id {
+                    // Show barcode frame
+                    let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+                    qrCodeFrameView?.frame = barCodeObject!.bounds
+
+                    // Show the popup if it's not opened already
+                    if(!popupVisible){
+                        showPopup()
+                    }
+                } else {
+                    // QR Code references a clue that doesn't exist
+                    print("Could not find Clue")
+                }
+            } else {
+                // QR code is malformed (or doesn't have our URL)
             }
-            
+        } else {
+            // QR code doesn't have text in it
         }
     }
     
     func showPopup() {
         popupVisible = true;
         print("Popping up!")
+        clueContainer.isHidden = true
         messageConstraint.constant = 0;
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.view.layoutIfNeeded()

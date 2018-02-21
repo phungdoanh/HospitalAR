@@ -14,6 +14,7 @@
 		D05E983220295C4400BE06A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D05E983020295C4400BE06A5 /* LaunchScreen.storyboard */; };
 		D05E985620295C6F00BE06A5 /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E985520295C6F00BE06A5 /* Clue.swift */; };
 		D05E985820295C8000BE06A5 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E985720295C8000BE06A5 /* CameraController.swift */; };
+		D07B2A53203D068900AEB419 /* ClueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07B2A52203D068900AEB419 /* ClueController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		D05E983320295C4400BE06A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D05E985520295C6F00BE06A5 /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
 		D05E985720295C8000BE06A5 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		D07B2A52203D068900AEB419 /* ClueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueController.swift; sourceTree = "<group>"; };
 		FE35A570798E5D7D3B860A77 /* Pods-HospitalAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HospitalAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-HospitalAR/Pods-HospitalAR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				D05E983320295C4400BE06A5 /* Info.plist */,
 				D05E985520295C6F00BE06A5 /* Clue.swift */,
 				D05E985720295C8000BE06A5 /* CameraController.swift */,
+				D07B2A52203D068900AEB419 /* ClueController.swift */,
 			);
 			path = HospitalAR;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07B2A53203D068900AEB419 /* ClueController.swift in Sources */,
 				D05E985820295C8000BE06A5 /* CameraController.swift in Sources */,
 				D05E985620295C6F00BE06A5 /* Clue.swift in Sources */,
 				D05E982820295C4400BE06A5 /* AppDelegate.swift in Sources */,
