@@ -101,8 +101,8 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         qrCodeFrameView?.frame = barCodeObject!.bounds
         
         if let codeUrl = metadataObj.stringValue {
-            let c = Clue(url: codeUrl)
-            messageLabel.text = c.id
+//            let c = Clue(url: codeUrl)
+            messageLabel.text = "Found"
             if(!popupVisible){
                 showPopup()
             }
@@ -128,7 +128,10 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     }
     
     @IBAction func statusTap(_ sender: Any) {
-        showPopup()
+        // Open Clue popup in the simulator with a tap (since there's no camera)
+        #if (arch(i386) || arch(x86_64)) && os(iOS)
+            showPopup()
+        #endif
     }
     
     @IBAction func nextClueTap(_ sender: Any) {

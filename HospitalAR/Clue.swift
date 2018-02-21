@@ -6,15 +6,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Clue {
-    let id: String
-    init(url: String){
-        let regex = try! NSRegularExpression(pattern: "\\/clue\\/([0-9]+)")
-        if let match = regex.matches(in: url, options: [], range: NSRange(location: 0, length: url.count)).first {
-            id = (url as NSString).substring(with: match.range);
-        }else{
-            id = "Invalid Code"
-        }
-    }
+class Clue : Object {
+    @objc dynamic var id = 0
+    @objc dynamic var title = ""
+    @objc dynamic var clueText = ""
+    @objc dynamic var hint = ""
+    @objc dynamic var image = ""
+    @objc dynamic var foundText = ""
+    @objc dynamic var next: Clue?
 }

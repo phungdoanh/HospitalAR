@@ -7,48 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BF09A0B66492203C050847E /* Pods_HospitalAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C18DCAF02677B1C33CC787F /* Pods_HospitalAR.framework */; };
 		D05E982820295C4400BE06A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E982720295C4400BE06A5 /* AppDelegate.swift */; };
 		D05E982D20295C4400BE06A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D05E982B20295C4400BE06A5 /* Main.storyboard */; };
 		D05E982F20295C4400BE06A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D05E982E20295C4400BE06A5 /* Assets.xcassets */; };
 		D05E983220295C4400BE06A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D05E983020295C4400BE06A5 /* LaunchScreen.storyboard */; };
-		D05E983D20295C4400BE06A5 /* HospitalARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E983C20295C4400BE06A5 /* HospitalARTests.swift */; };
-		D05E984820295C4400BE06A5 /* HospitalARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E984720295C4400BE06A5 /* HospitalARUITests.swift */; };
 		D05E985620295C6F00BE06A5 /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E985520295C6F00BE06A5 /* Clue.swift */; };
 		D05E985820295C8000BE06A5 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E985720295C8000BE06A5 /* CameraController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D05E983920295C4400BE06A5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D05E981C20295C4400BE06A5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D05E982320295C4400BE06A5;
-			remoteInfo = HospitalAR;
-		};
-		D05E984420295C4400BE06A5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D05E981C20295C4400BE06A5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D05E982320295C4400BE06A5;
-			remoteInfo = HospitalAR;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		3A701C41D1AF7D7D80D86F20 /* Pods-HospitalARUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HospitalARUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HospitalARUITests/Pods-HospitalARUITests.release.xcconfig"; sourceTree = "<group>"; };
+		44E67CCDA15BBC0617BBE2B9 /* Pods-HospitalARTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HospitalARTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HospitalARTests/Pods-HospitalARTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4BA3F47AFB0E92A0417A232F /* Pods-HospitalARUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HospitalARUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HospitalARUITests/Pods-HospitalARUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		74D917ADF48567789D3C7923 /* Pods-HospitalARTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HospitalARTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HospitalARTests/Pods-HospitalARTests.release.xcconfig"; sourceTree = "<group>"; };
+		9C18DCAF02677B1C33CC787F /* Pods_HospitalAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HospitalAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7643B726742958B73724CF7 /* Pods-HospitalAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HospitalAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HospitalAR/Pods-HospitalAR.debug.xcconfig"; sourceTree = "<group>"; };
 		D05E982420295C4400BE06A5 /* HospitalAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HospitalAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05E982720295C4400BE06A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D05E982C20295C4400BE06A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D05E982E20295C4400BE06A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D05E983120295C4400BE06A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D05E983320295C4400BE06A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D05E983820295C4400BE06A5 /* HospitalARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HospitalARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D05E983C20295C4400BE06A5 /* HospitalARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalARTests.swift; sourceTree = "<group>"; };
-		D05E983E20295C4400BE06A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D05E984320295C4400BE06A5 /* HospitalARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HospitalARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D05E984720295C4400BE06A5 /* HospitalARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalARUITests.swift; sourceTree = "<group>"; };
-		D05E984920295C4400BE06A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D05E985520295C6F00BE06A5 /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
 		D05E985720295C8000BE06A5 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		FE35A570798E5D7D3B860A77 /* Pods-HospitalAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HospitalAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-HospitalAR/Pods-HospitalAR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,33 +39,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D05E983520295C4400BE06A5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D05E984020295C4400BE06A5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				0BF09A0B66492203C050847E /* Pods_HospitalAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		261B15DE3AA2AC3A7DAC1F52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C18DCAF02677B1C33CC787F /* Pods_HospitalAR.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BD1D4241BE61DC754C9F4A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7643B726742958B73724CF7 /* Pods-HospitalAR.debug.xcconfig */,
+				FE35A570798E5D7D3B860A77 /* Pods-HospitalAR.release.xcconfig */,
+				44E67CCDA15BBC0617BBE2B9 /* Pods-HospitalARTests.debug.xcconfig */,
+				74D917ADF48567789D3C7923 /* Pods-HospitalARTests.release.xcconfig */,
+				4BA3F47AFB0E92A0417A232F /* Pods-HospitalARUITests.debug.xcconfig */,
+				3A701C41D1AF7D7D80D86F20 /* Pods-HospitalARUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D05E981B20295C4400BE06A5 = {
 			isa = PBXGroup;
 			children = (
 				D05E982620295C4400BE06A5 /* HospitalAR */,
-				D05E983B20295C4400BE06A5 /* HospitalARTests */,
-				D05E984620295C4400BE06A5 /* HospitalARUITests */,
 				D05E982520295C4400BE06A5 /* Products */,
+				9BD1D4241BE61DC754C9F4A0 /* Pods */,
+				261B15DE3AA2AC3A7DAC1F52 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,8 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				D05E982420295C4400BE06A5 /* HospitalAR.app */,
-				D05E983820295C4400BE06A5 /* HospitalARTests.xctest */,
-				D05E984320295C4400BE06A5 /* HospitalARUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,24 +99,6 @@
 			path = HospitalAR;
 			sourceTree = "<group>";
 		};
-		D05E983B20295C4400BE06A5 /* HospitalARTests */ = {
-			isa = PBXGroup;
-			children = (
-				D05E983C20295C4400BE06A5 /* HospitalARTests.swift */,
-				D05E983E20295C4400BE06A5 /* Info.plist */,
-			);
-			path = HospitalARTests;
-			sourceTree = "<group>";
-		};
-		D05E984620295C4400BE06A5 /* HospitalARUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D05E984720295C4400BE06A5 /* HospitalARUITests.swift */,
-				D05E984920295C4400BE06A5 /* Info.plist */,
-			);
-			path = HospitalARUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D05E984C20295C4400BE06A5 /* Build configuration list for PBXNativeTarget "HospitalAR" */;
 			buildPhases = (
+				1CC6A2CB274524382689DBC2 /* [CP] Check Pods Manifest.lock */,
 				D05E982020295C4400BE06A5 /* Sources */,
 				D05E982120295C4400BE06A5 /* Frameworks */,
 				D05E982220295C4400BE06A5 /* Resources */,
+				CA595F6A4F66B76DB9B28F2E /* [CP] Embed Pods Frameworks */,
+				E02CD3248D0CC610599BC9BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -147,42 +121,6 @@
 			productName = HospitalAR;
 			productReference = D05E982420295C4400BE06A5 /* HospitalAR.app */;
 			productType = "com.apple.product-type.application";
-		};
-		D05E983720295C4400BE06A5 /* HospitalARTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D05E984F20295C4400BE06A5 /* Build configuration list for PBXNativeTarget "HospitalARTests" */;
-			buildPhases = (
-				D05E983420295C4400BE06A5 /* Sources */,
-				D05E983520295C4400BE06A5 /* Frameworks */,
-				D05E983620295C4400BE06A5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D05E983A20295C4400BE06A5 /* PBXTargetDependency */,
-			);
-			name = HospitalARTests;
-			productName = HospitalARTests;
-			productReference = D05E983820295C4400BE06A5 /* HospitalARTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D05E984220295C4400BE06A5 /* HospitalARUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D05E985220295C4400BE06A5 /* Build configuration list for PBXNativeTarget "HospitalARUITests" */;
-			buildPhases = (
-				D05E983F20295C4400BE06A5 /* Sources */,
-				D05E984020295C4400BE06A5 /* Frameworks */,
-				D05E984120295C4400BE06A5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D05E984520295C4400BE06A5 /* PBXTargetDependency */,
-			);
-			name = HospitalARUITests;
-			productName = HospitalARUITests;
-			productReference = D05E984320295C4400BE06A5 /* HospitalARUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -197,16 +135,6 @@
 					D05E982320295C4400BE06A5 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
-					};
-					D05E983720295C4400BE06A5 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = D05E982320295C4400BE06A5;
-					};
-					D05E984220295C4400BE06A5 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = D05E982320295C4400BE06A5;
 					};
 				};
 			};
@@ -224,8 +152,6 @@
 			projectRoot = "";
 			targets = (
 				D05E982320295C4400BE06A5 /* HospitalAR */,
-				D05E983720295C4400BE06A5 /* HospitalARTests */,
-				D05E984220295C4400BE06A5 /* HospitalARUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -241,21 +167,63 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D05E983620295C4400BE06A5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D05E984120295C4400BE06A5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CC6A2CB274524382689DBC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HospitalAR-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA595F6A4F66B76DB9B28F2E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HospitalAR/Pods-HospitalAR-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HospitalAR/Pods-HospitalAR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E02CD3248D0CC610599BC9BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HospitalAR/Pods-HospitalAR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D05E982020295C4400BE06A5 /* Sources */ = {
@@ -268,36 +236,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D05E983420295C4400BE06A5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D05E983D20295C4400BE06A5 /* HospitalARTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D05E983F20295C4400BE06A5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D05E984820295C4400BE06A5 /* HospitalARUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D05E983A20295C4400BE06A5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D05E982320295C4400BE06A5 /* HospitalAR */;
-			targetProxy = D05E983920295C4400BE06A5 /* PBXContainerItemProxy */;
-		};
-		D05E984520295C4400BE06A5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D05E982320295C4400BE06A5 /* HospitalAR */;
-			targetProxy = D05E984420295C4400BE06A5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D05E982B20295C4400BE06A5 /* Main.storyboard */ = {
@@ -322,6 +261,7 @@
 		D05E984A20295C4400BE06A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -379,6 +319,7 @@
 		D05E984B20295C4400BE06A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -428,6 +369,7 @@
 		};
 		D05E984D20295C4400BE06A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7643B726742958B73724CF7 /* Pods-HospitalAR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -443,6 +385,7 @@
 		};
 		D05E984E20295C4400BE06A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE35A570798E5D7D3B860A77 /* Pods-HospitalAR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -453,72 +396,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		D05E985020295C4400BE06A5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MAGH59QJGS;
-				INFOPLIST_FILE = HospitalARTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peterandringa.HospitalARTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HospitalAR.app/HospitalAR";
-			};
-			name = Debug;
-		};
-		D05E985120295C4400BE06A5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MAGH59QJGS;
-				INFOPLIST_FILE = HospitalARTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peterandringa.HospitalARTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HospitalAR.app/HospitalAR";
-			};
-			name = Release;
-		};
-		D05E985320295C4400BE06A5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MAGH59QJGS;
-				INFOPLIST_FILE = HospitalARUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peterandringa.HospitalARUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HospitalAR;
-			};
-			name = Debug;
-		};
-		D05E985420295C4400BE06A5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MAGH59QJGS;
-				INFOPLIST_FILE = HospitalARUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peterandringa.HospitalARUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HospitalAR;
 			};
 			name = Release;
 		};
@@ -539,24 +416,6 @@
 			buildConfigurations = (
 				D05E984D20295C4400BE06A5 /* Debug */,
 				D05E984E20295C4400BE06A5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D05E984F20295C4400BE06A5 /* Build configuration list for PBXNativeTarget "HospitalARTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D05E985020295C4400BE06A5 /* Debug */,
-				D05E985120295C4400BE06A5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D05E985220295C4400BE06A5 /* Build configuration list for PBXNativeTarget "HospitalARUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D05E985320295C4400BE06A5 /* Debug */,
-				D05E985420295C4400BE06A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
