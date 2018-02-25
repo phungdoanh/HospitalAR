@@ -39,7 +39,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="nextClueTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sLA-Pp-9x0"/>
-                                            <segue destination="Uj5-MI-HWD" kind="show" id="e6o-ZU-oQ5"/>
+                                            <segue destination="Uj5-MI-HWD" kind="show" identifier="ToClueController" id="e6o-ZU-oQ5"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cape" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-pU-FW1">

@@ -25,7 +25,8 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     var popupVisible = false
     
     var currentClue: Clue? // Comes in from preceeding scene
-
+    var foundClue: Clue?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -130,6 +131,7 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     }
     
     func showPopup() {
+        foundClue = currentClue;
         popupVisible = true;
         print("Popping up!")
         clueContainer.isHidden = true
@@ -158,6 +160,15 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         hidePopup()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToClueController" {
+            if let destination = segue.destination as? ClueController {
+                if let clue = foundClue {
+                    destination.completedClues.append(clue.id)
+                }
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

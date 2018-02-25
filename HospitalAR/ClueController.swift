@@ -15,13 +15,14 @@ class ClueController: UIViewController {
     @IBOutlet weak var clueText: UILabel!
     
     var currentClue: Clue?
+    var completedClues = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.getRealm { clueRealm in
-            self.currentClue = clueRealm.objects(Clue.self).first
+            self.currentClue = clueRealm.objects(Clue.self).filter(NSPredicate(format: "NOT (id IN %@)", self.completedClues)).first
             // Update labels
             self.clueTitle.text = self.currentClue?.clueTitle
             self.clueText.text = self.currentClue?.clueText
