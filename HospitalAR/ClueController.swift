@@ -14,18 +14,18 @@ class ClueController: UIViewController {
     @IBOutlet weak var clueTitle: UILabel!
     @IBOutlet weak var clueText: UILabel!
     
-    let clueRealm = try! Realm()
     var currentClue: Clue?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Pick out the current clue
-        self.currentClue = clueRealm.objects(Clue.self).first
-        
-        // Update Label Values
-        clueTitle.text = currentClue?.clueTitle
-        clueText.text = currentClue?.clueText
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.getRealm { clueRealm in
+            self.currentClue = clueRealm.objects(Clue.self).first
+            // Update labels
+            self.clueTitle.text = self.currentClue?.clueTitle
+            self.clueText.text = self.currentClue?.clueText
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

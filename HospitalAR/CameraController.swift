@@ -7,7 +7,6 @@
 
 import UIKit
 import AVFoundation
-import RealmSwift
 
 class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
@@ -26,8 +25,6 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     var popupVisible = false
     
     var currentClue: Clue? // Comes in from preceeding scene
-    
-    let clueRealm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,31 +8,67 @@
 import UIKit
 import RealmSwift
 
+protocol RealmRetriever {
+    func getRealm(cb: @escaping (Realm) -> Void)
+}
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, RealmRetriever {
 
     var window: UIWindow?
 
-
+    var clueRealm: Realm?
+    
+    var realmCallbacks = [(Realm) -> Void]()
+    
+    func logIn(done: @escaping (SyncUser) -> Void) {
+        let usernameCredentials = SyncCredentials.usernamePassword(username: "hospitalar", password: "w4Uyhz9e=")
+        SyncUser.logIn(with: usernameCredentials, server: URL(string: "http://ec2-52-91-169-138.compute-1.amazonaws.com:9080")!) { user, error in
+            if let user = user {
+                done(user)
+            } else if let error = error {
+                print("Error logging in")
+                print(error)
+            }
+        }
+    }
+        
+    func openRealm(user: SyncUser, done: @escaping (Realm) -> Void)  {
+        let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://ec2-52-91-169-138.compute-1.amazonaws.com:9080/clues")!))
+        Realm.asyncOpen(configuration: config) { realm, error in
+            if let realm = realm {
+                done(realm)
+            } else if let error = error {
+                print(error)
+            }
+        }
+    }
+    
+    func getRealm(cb: @escaping (Realm) -> Void) {
+        if let realm = self.clueRealm {
+            cb(realm)
+        } else {
+            realmCallbacks.append(cb)
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // TEMP: Stub a clue for Realm
-        let clueRealm = try! Realm()
-        if clueRealm.objects(Clue.self).count == 0 {
-            let testClue = Clue()
-            testClue.id = 1
-            testClue.clueTitle = "Clue #1"
-            testClue.clueText = "You want to fly? You’re looking for birds with long necks who honk when they're flying."
-            testClue.hint = "These geese are flying towards treatment!"
-            testClue.image = "cape.jpg"
-            testClue.foundTitle = "Cape"
-            testClue.foundText = "You found a cape! Your hero now has the power of flight."
+        self.realmCallbacks.append { realm in
+            print("Successfully loaded realm")
+        }
         
-            try! clueRealm.write {
-                clueRealm.add(testClue)
+        // TEMP: Stub a clue for Realm
+        self.logIn() { user in
+            print("Logged in")
+            self.openRealm(user: user) { realm in
+                print("Opened Realm")
+                self.clueRealm = realm
+                for cb in self.realmCallbacks { cb(realm) }
             }
         }
+        
         return true
     }
 
