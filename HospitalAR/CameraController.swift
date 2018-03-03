@@ -26,7 +26,6 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     var popupVisible = false
     
     var currentClue: Clue? // Comes in from preceeding scene
-    var foundClue: Clue?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,14 +144,20 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     }
     
     func showPopup() {
-        foundClue = currentClue;
         popupVisible = true;
-        print("Popping up!")
         clueContainer.isHidden = true
         messageConstraint.constant = 0;
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
+        
+        (UIApplication.shared.delegate as! AppDelegate).getUserRealm { realm in
+            try! realm.write {
+                let completed = CompletedClue()
+                completed.id = self.currentClue!.id
+                realm.add(completed)
+            }
+        }
     }
     
     func hidePopup(){
@@ -172,16 +177,6 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     
     @IBAction func nextClueTap(_ sender: Any) {
         hidePopup()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToClueController" {
-            if let destination = segue.destination as? ClueController {
-                if let clue = foundClue {
-                    destination.completedClues.append(clue.id)
-                }
-            }
-        }
     }
     
     override func didReceiveMemoryWarning() {

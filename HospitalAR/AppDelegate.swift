@@ -12,6 +12,7 @@ import CloudKit
 protocol RealmRetriever {
     func getGlobalRealm(cb: @escaping (Realm) -> Void)
     func getUserRealm(cb: @escaping (Realm) -> Void)
+    func getRealms(cb: @escaping (Realm, Realm) -> Void)
 }
 
 @UIApplicationMain
@@ -74,6 +75,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RealmRetriever {
             cb(realm)
         } else {
             userRealmCallbacks.append(cb)
+        }
+    }
+    
+    func getRealms(cb: @escaping (Realm, Realm) -> Void) {
+        self.getUserRealm { user in
+            self.getGlobalRealm { global in
+                cb(global, user)
+            }
         }
     }
     
