@@ -7,9 +7,11 @@
 
 import UIKit
 import RealmSwift
+import CloudKit
 
 protocol RealmRetriever {
-    func getRealm(cb: @escaping (Realm) -> Void)
+    func getGlobalRealm(cb: @escaping (Realm) -> Void)
+    func getUserRealm(cb: @escaping (Realm) -> Void)
 }
 
 @UIApplicationMain
@@ -17,13 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RealmRetriever {
 
     var window: UIWindow?
 
-    var clueRealm: Realm?
+    var globalRealm: Realm?
+    var userRealm: Realm?
     
-    var realmCallbacks = [(Realm) -> Void]()
+    var globalRealmCallbacks = [(Realm) -> Void]()
+    var userRealmCallbacks = [(Realm) -> Void]()
     
     func logIn(done: @escaping (SyncUser) -> Void) {
-        let usernameCredentials = SyncCredentials.usernamePassword(username: "hospitalar", password: "w4Uyhz9e=")
-        SyncUser.logIn(with: usernameCredentials, server: URL(string: "http://ec2-52-91-169-138.compute-1.amazonaws.com:9080")!) { user, error in
+        let credentials = SyncCredentials.usernamePassword(username: "something", password: "something")
+        SyncUser.logIn(with: credentials, server: URL(string: "http://ec2-52-91-169-138.compute-1.amazonaws.com:9080")!) { user, error in
             if let user = user {
                 done(user)
             } else if let error = error {
@@ -33,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RealmRetriever {
         }
     }
         
-    func openRealm(user: SyncUser, done: @escaping (Realm) -> Void)  {
+    func openGlobalRealm(user: SyncUser, done: @escaping (Realm) -> Void)  {
         let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://ec2-52-91-169-138.compute-1.amazonaws.com:9080/clues")!))
         Realm.asyncOpen(configuration: config) { realm, error in
             if let realm = realm {
@@ -44,28 +48,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RealmRetriever {
         }
     }
     
-    func getRealm(cb: @escaping (Realm) -> Void) {
-        if let realm = self.clueRealm {
+    func openUserRealm(user: SyncUser, done: @escaping (Realm) -> Void)  {
+//        let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://ec2-52-91-169-138.compute-1.amazonaws.com:9080/~/user")!))
+//        Realm.asyncOpen(configuration: config) { realm, error in
+//            if let realm = realm {
+//                done(realm)
+//            } else if let error = error {
+//                print(error)
+//            }
+//        }
+        let realm = try! Realm()
+        done(realm)
+    }
+    
+    func getGlobalRealm(cb: @escaping (Realm) -> Void) {
+        if let realm = self.globalRealm {
             cb(realm)
         } else {
-            realmCallbacks.append(cb)
+            globalRealmCallbacks.append(cb)
+        }
+    }
+    
+    func getUserRealm(cb: @escaping (Realm) -> Void) {
+        if let realm = self.userRealm {
+            cb(realm)
+        } else {
+            userRealmCallbacks.append(cb)
         }
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        self.realmCallbacks.append { realm in
-            print("Successfully loaded realm")
+        self.globalRealmCallbacks.append { realm in
+            print("Successfully loaded global realm")
+        }
+        self.userRealmCallbacks.append { realm in
+            print("Successfully loaded user realm")
         }
         
-        // TEMP: Stub a clue for Realm
         self.logIn() { user in
             print("Logged in")
-            self.openRealm(user: user) { realm in
-                print("Opened Realm")
-                self.clueRealm = realm
-                for cb in self.realmCallbacks { cb(realm) }
+            self.openGlobalRealm(user: user) { realm in
+                self.globalRealm = realm
+                for cb in self.globalRealmCallbacks { cb(realm) }
+            }
+            self.openUserRealm(user: user) { realm in
+                self.userRealm = realm
+                for cb in self.userRealmCallbacks { cb(realm) }
             }
         }
         

@@ -21,7 +21,7 @@ class ClueController: UIViewController {
         super.viewDidLoad()
         
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        delegate.getRealm { clueRealm in
+        delegate.getGlobalRealm { clueRealm in
             self.currentClue = clueRealm.objects(Clue.self).filter(NSPredicate(format: "NOT (id IN %@)", self.completedClues)).first
             // Update labels
             self.clueTitle.text = self.currentClue?.clueTitle
