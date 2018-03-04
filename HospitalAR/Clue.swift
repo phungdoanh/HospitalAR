@@ -22,3 +22,7 @@ class Clue : Object {
         return "id"
     }
 }
+
+class CompletedClue : Object {
+    @objc dynamic var id = 0
+}

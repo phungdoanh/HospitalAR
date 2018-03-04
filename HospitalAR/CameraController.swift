@@ -17,15 +17,15 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     @IBOutlet var clueLabel:UILabel!
     @IBOutlet weak var messageConstraint: NSLayoutConstraint!
     
+    var wrongCodeView: UIView?
+    
     var captureSession = AVCaptureSession()
     
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    var qrCodeFrameView: UIView?
     
     var popupVisible = false
     
     var currentClue: Clue? // Comes in from preceeding scene
-    var foundClue: Clue?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,18 +76,28 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         videoPreviewLayer?.frame = view.layer.bounds
         view.layer.addSublayer(videoPreviewLayer!)
         
+        wrongCodeView = UIView()
+        wrongCodeView?.backgroundColor = UIColor.red
+        wrongCodeView?.layer.shadowOpacity = 0.5
+        wrongCodeView?.layer.shadowOffset = CGSize(width: 0, height: 0)
+        wrongCodeView?.layer.shadowRadius = 3
+        wrongCodeView?.layer.shadowColor = UIColor.lightGray.cgColor
+        wrongCodeView?.frame = CGRect.zero
+        
+        let wrongCodeLabel = UILabel()
+        wrongCodeLabel.text = " Close... but wrong code "
+        wrongCodeLabel.textColor = UIColor.white
+        wrongCodeLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        wrongCodeLabel.adjustsFontSizeToFitWidth = true;
+        wrongCodeLabel.textAlignment = .center;
+        
+        wrongCodeView?.addSubview(wrongCodeLabel)
+        
+        view.addSubview(wrongCodeView!)
+        view.bringSubview(toFront: wrongCodeView!)
+        
         // Start video capture.
         captureSession.startRunning()
-        
-        // Initialize QR Code Frame to highlight the QR code
-        qrCodeFrameView = UIView()
-        
-        if let qrCodeFrameView = qrCodeFrameView {
-            qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-            qrCodeFrameView.layer.borderWidth = 3
-            view.addSubview(qrCodeFrameView)
-            view.bringSubview(toFront: qrCodeFrameView)
-        }
         
         // Move the message label and top bar to the front
         view.bringSubview(toFront: clueContainer)
@@ -98,7 +108,7 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRect.zero
+            wrongCodeView?.frame = CGRect.zero
             return
         }
         
@@ -110,17 +120,20 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             if let match = regex.matches(in: codeUrl, options: [], range: NSRange(location: 0, length: codeUrl.count)).first {
                 let id = (codeUrl as NSString).substring(with: match.range(at:1))
                 if Int(id) == currentClue!.id {
-                    // Show barcode frame
-                    let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-                    qrCodeFrameView?.frame = barCodeObject!.bounds
-
                     // Show the popup if it's not opened already
                     if(!popupVisible){
                         showPopup()
                     }
                 } else {
                     // QR Code references a clue that doesn't exist
-                    print("Could not find Clue")
+                    let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+                    
+                    let width = barCodeObject?.bounds.width
+                    let height = width!/6
+                    let newX = (barCodeObject?.bounds.midX)! - width!/2
+                    let newY = (barCodeObject?.bounds.maxY)! + 10
+                    print("Could not find Clue: \(newX), \(newY)")
+                    wrongCodeView?.frame = CGRect(x: newX, y: newY, width: width!, height: height)
                 }
             } else {
                 // QR code is malformed (or doesn't have our URL)
@@ -131,14 +144,20 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     }
     
     func showPopup() {
-        foundClue = currentClue;
         popupVisible = true;
-        print("Popping up!")
         clueContainer.isHidden = true
         messageConstraint.constant = 0;
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
+        
+        (UIApplication.shared.delegate as! AppDelegate).getUserRealm { realm in
+            try! realm.write {
+                let completed = CompletedClue()
+                completed.id = self.currentClue!.id
+                realm.add(completed)
+            }
+        }
     }
     
     func hidePopup(){
@@ -158,16 +177,6 @@ class CameraController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     
     @IBAction func nextClueTap(_ sender: Any) {
         hidePopup()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToClueController" {
-            if let destination = segue.destination as? ClueController {
-                if let clue = foundClue {
-                    destination.completedClues.append(clue.id)
-                }
-            }
-        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -11,30 +11,87 @@ import RealmSwift
 
 class ClueController: UIViewController {
     
-    @IBOutlet weak var clueTitle: UILabel!
-    @IBOutlet weak var clueText: UILabel!
+    @IBOutlet weak var clueTitle1: UILabel!
+    @IBOutlet weak var clueText1: UILabel!
+    @IBOutlet weak var clueView1: UIView!
+    @IBOutlet weak var clueTitle2: UILabel!
+    @IBOutlet weak var clueText2: UILabel!
+    @IBOutlet weak var clueView2: UIView!
+    @IBOutlet weak var restartButton: UIButton!
     
-    var currentClue: Clue?
-    var completedClues = [Int]()
+    var clue1: Clue?
+    var clue2: Clue?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        delegate.getRealm { clueRealm in
-            self.currentClue = clueRealm.objects(Clue.self).filter(NSPredicate(format: "NOT (id IN %@)", self.completedClues)).first
-            // Update labels
-            self.clueTitle.text = self.currentClue?.clueTitle
-            self.clueText.text = self.currentClue?.clueText
+        delegate.getRealms { globalRealm, userRealm in
+            
+            let completedClues = userRealm.objects(CompletedClue.self).value(forKey:"id") as! [Int]
+            let possibleClues = globalRealm.objects(Clue.self).filter(NSPredicate(format: "NOT (id IN %@)", completedClues))
+            if(possibleClues.count > 0) {
+                let clue1Index = Int(arc4random_uniform(UInt32(possibleClues.count)))
+                self.clue1 = possibleClues[clue1Index]
+                if(possibleClues.count > 1){
+                    var clue2Index = clue1Index
+                    while(clue2Index == clue1Index){
+                        clue2Index = Int(arc4random_uniform(UInt32(possibleClues.count)))
+                    }
+                    self.clue2 = possibleClues[clue2Index]
+                }
+            
+                // Update labels
+                if let clue = self.clue1 {
+                    self.clueTitle1.text = clue.clueTitle
+                    self.clueText1.text = clue.clueText
+                    self.clueTitle1.isHidden = false;
+                    self.clueView1.isHidden = false;
+                }else{
+                    self.clueTitle1.isHidden = true;
+                    self.clueView1.isHidden = true;
+                }
+            
+                if let clue = self.clue2 {
+                    self.clueTitle2.text = clue.clueTitle
+                    self.clueText2.text = clue.clueText
+                    self.clueTitle2.isHidden = false;
+                    self.clueView2.isHidden = false;
+                }else{
+                    self.clueTitle2.isHidden = true;
+                    self.clueView2.isHidden = true;
+                }
+                self.restartButton.isHidden = true;
+            } else {
+                self.clueTitle1.isHidden = true;
+                self.clueView1.isHidden = true;
+                self.clueTitle2.isHidden = true;
+                self.clueView2.isHidden = true;
+                self.restartButton.isHidden = false;
+            }
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToCameraController" {
-            if let destination = segue.destination as? CameraController {
-                destination.currentClue = self.currentClue
+    @IBAction func resetClues(_ sender: Any) {
+        (UIApplication.shared.delegate as! AppDelegate).getUserRealm { realm in
+            try! realm.write {
+            realm.delete(realm.objects(CompletedClue.self))
+                self.viewDidLoad()
             }
         }
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? CameraController {
+            if segue.identifier == "ToCameraController1" {
+                destination.currentClue = self.clue1
+            }
+            if segue.identifier == "ToCameraController2" {
+                destination.currentClue = self.clue2
+            }
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
