@@ -188,6 +188,7 @@
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitName:" destination="GjD-81-qjv" eventType="touchUpInside" id="4Hn-m3-cga"/>
+                                    <segue destination="3Vo-iO-MTo" kind="show" id="lBp-kY-jyD"/>
                                 </connections>
                             </button>
                         </subviews>
