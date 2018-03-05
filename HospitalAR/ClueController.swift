@@ -22,6 +22,8 @@ class ClueController: UIViewController {
     var clue1: Clue?
     var clue2: Clue?
     
+    var currentHero: Hero? // Passed in from HeroCustomizeController
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,7 +93,6 @@ class ClueController: UIViewController {
                 destination.currentClue = self.clue2
             }
         }
-        
     }
     
     override func didReceiveMemoryWarning() {

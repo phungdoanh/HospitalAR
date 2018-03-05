@@ -175,29 +175,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What's your name?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8g-m9-XZJ">
-                                <rect key="frame" x="18" y="20" width="303" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's the hero's name?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8g-m9-XZJ">
+                                <rect key="frame" x="16" y="20" width="343" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <color key="textColor" red="0.1529411765" green="0.20392156859999999" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.15603060645495148" green="0.39631774039557682" blue="0.31518182503900205" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0f-52-bjH">
-                                <rect key="frame" x="163" y="366" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Submit"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unk-ZB-WFO">
+                                <rect key="frame" x="40" y="597" width="295" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="j9e-sL-PyV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.15748031496062992" green="0.40000000000000002" blue="0.31811023622047246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="3Vo-iO-MTo" kind="show" id="0DU-NW-rJO"/>
+                                    <action selector="resetClues:" destination="Uj5-MI-HWD" eventType="touchUpInside" id="Cwg-Yf-8Ny"/>
+                                    <segue destination="3Vo-iO-MTo" kind="show" id="yyW-0H-7UI"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nXg-I5-coT">
+                                <rect key="frame" x="40" y="313.5" width="295" height="60"/>
+                                <color key="backgroundColor" red="0.14375000000000002" green="0.40000000000000002" blue="0.31458333333333344" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="NTV-si-4PM"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.21176470588235294" green="0.71764705882352942" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="VKP-aZ-LBW" firstAttribute="trailing" secondItem="nXg-I5-coT" secondAttribute="trailing" constant="40" id="69Q-18-AUj"/>
+                            <constraint firstItem="r8g-m9-XZJ" firstAttribute="top" secondItem="VKP-aZ-LBW" secondAttribute="top" id="8hX-5c-E6t"/>
+                            <constraint firstItem="nXg-I5-coT" firstAttribute="centerY" secondItem="VKP-aZ-LBW" secondAttribute="centerY" id="CWn-yi-CKh"/>
+                            <constraint firstItem="nXg-I5-coT" firstAttribute="leading" secondItem="VKP-aZ-LBW" secondAttribute="leading" constant="40" id="WBK-UX-hIq"/>
+                            <constraint firstItem="VKP-aZ-LBW" firstAttribute="bottom" secondItem="unk-ZB-WFO" secondAttribute="bottom" constant="20" id="XvV-tc-agT"/>
+                            <constraint firstItem="VKP-aZ-LBW" firstAttribute="trailing" secondItem="unk-ZB-WFO" secondAttribute="trailing" constant="40" id="dMS-9O-Dnu"/>
+                            <constraint firstItem="VKP-aZ-LBW" firstAttribute="trailing" secondItem="r8g-m9-XZJ" secondAttribute="trailing" constant="16" id="uPH-nH-gaC"/>
+                            <constraint firstItem="unk-ZB-WFO" firstAttribute="leading" secondItem="VKP-aZ-LBW" secondAttribute="leading" constant="40" id="vhr-G0-Qth"/>
+                            <constraint firstItem="r8g-m9-XZJ" firstAttribute="leading" secondItem="VKP-aZ-LBW" secondAttribute="leading" constant="16" id="yOI-s7-Z8f"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VKP-aZ-LBW"/>
                     </view>
+                    <connections>
+                        <outlet property="nameField" destination="nXg-I5-coT" id="rEz-np-OaL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3X5-1N-4nZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2714" y="87"/>
+            <point key="canvasLocation" x="-2714.4000000000001" y="86.806596701649184"/>
         </scene>
         <!--Hero Customize Controller-->
         <scene sceneID="QtQ-zK-msw">

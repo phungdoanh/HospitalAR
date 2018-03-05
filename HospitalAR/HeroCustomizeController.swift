@@ -17,20 +17,22 @@ class HeroCustomizeController : UIViewController {
     @IBOutlet weak var hairLabel: UILabel!
     @IBOutlet weak var suitLabel: UILabel!
     
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        hero.name
         nameLabel.text = "NAME: " + hero.name
-//        var realm = try! Realm()
-// print(realm.configuration.fileURL!.absoluteString)
-//        try! realm.write {
-//            realm.add(hero)
-//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        if let destination = segue.destination as? ClueController {
+            self.delegate.getUserRealm { realm in
+                try! realm.write {
+                    realm.add(self.hero)
+                }
+            }
+            destination.currentHero = self.hero
+        }
     }
     
     override func didReceiveMemoryWarning() {
