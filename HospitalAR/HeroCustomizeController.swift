@@ -33,7 +33,7 @@ class HeroCustomizeController : UIViewController {
         if let destination = segue.destination as? ClueController {
             self.delegate.getUserRealm { realm in
                 try! realm.write {
-                    realm.add(self.hero)
+//                    realm.add(self.hero)
                 }
             }
             destination.currentHero = self.hero
