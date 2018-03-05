@@ -11,7 +11,7 @@ import RealmSwift
 
 class NameController : UIViewController {
     
-//    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var nameField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,17 +19,13 @@ class NameController : UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        if let destination = segue.destination as? HeroCustomizeController {
+            destination.hero.name = nameField.text!
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func submitName(_ sender: UIButton) {
-//        let hCVC = storyboard?.instantiateViewController(withIdentifier: "HeroCustomizeController") as! HeroCustomizeController
-////        hCVC.hero.name = name.text!
-//        navigationController?.pushViewController(hCVC, animated: true)
     }
 }
