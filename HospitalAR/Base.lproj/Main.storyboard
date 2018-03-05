@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Vo-iO-MTo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LUL-zG-amx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -167,11 +167,11 @@
             </objects>
             <point key="canvasLocation" x="5.5999999999999996" y="86.806596701649184"/>
         </scene>
-        <!--View Controller-->
+        <!--Name Controller-->
         <scene sceneID="Ozb-hB-Erj">
             <objects>
-                <viewController id="LUL-zG-amx" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GjD-81-qjv" customClass="NameController" customModule="HospitalAR" customModuleProvider="target">
+                <viewController id="LUL-zG-amx" customClass="NameController" customModule="HospitalAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GjD-81-qjv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -187,8 +187,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <action selector="submitName:" destination="GjD-81-qjv" eventType="touchUpInside" id="4Hn-m3-cga"/>
-                                    <segue destination="3Vo-iO-MTo" kind="show" id="lBp-kY-jyD"/>
+                                    <segue destination="3Vo-iO-MTo" kind="show" id="0DU-NW-rJO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -745,7 +744,7 @@
         <image name="Cape" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e6o-ZU-oQ5"/>
+        <segue reference="vv1-SY-Fxf"/>
         <segue reference="t8P-Yx-T72"/>
     </inferredMetricsTieBreakers>
 </document>
